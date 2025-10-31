@@ -1,0 +1,224 @@
+TESTAUS-KURSSI (OHJELMISTOTESTAUS)
+
+
+8 viikkoa, joka viikko luento + harjoituksia
+ja sitten lopputyö
+
+- palautettavat harjoitukset
+- palautettavat tehtäväpaketit (yksikkötestaus, end-to-end -testaus, CI/CD-julkaisuputken toteutus)
+- omatoimitentin läpäisy
+- lopputyö (joku githubissa julkaistu projekti missä on yksikkö- ja end-to-end -testejä)
+
+
+-------------------------------------------------------------------------------
+
+
+OPINTOJAKSON SISÄLTÖ
+
+
+- ohjelmistotestauksen perusteet
+- testauksen suunnittelu
+- yksikkötestaus & Test Driven Development (TDD)
+- end-to-end -testaus
+- integraatio- ja rajapintatestaus
+- suorituskykytestaus
+- testausautomaatio ja CI/CD (Continuous Integration, Continuous Development)
+
+-------------------------------------------------------------------------------
+
+
+MIKSI TESTATA?
+
+
+- ei bugeja
+- standardit täyttyy
+- säästää aikaa ja rahaa
+- sovellukset yms. ovat tuotteita, tuotoksia. laadun näyte. tuottajansa jälki ja mainos
+- ohjelmistokehitys on erittäin monimutkasta -> virhealttius kasvaa
+- kehitysympäristö ei usein vastaa käyttöympäristöä
+- virheet aiheuttavat seuraamuksia, jotka voivat olla vakavia
+- turvallisuus ja tietoturva
+- asiakastyytyväisyys ja luottamus
+
+
+-------------------------------------------------------------------------------
+
+
+Secure Software Development Life Cycle (SDLC)
+
+
+1. Requirements
+2. Design
+3. Development
+4. Testing
+5. Release
+6. Maintenance
+
+- ohjelmisto ei tavallaan "kuole" koskaan
+
+Code Review on usein käytössä työpaikoilla
+
+- kehitysmallit: waterfall -> iterative, spiral -> agile
+
+
+-------------------------------------------------------------------------------
+
+
+Ohjelmistokehityksen V-malli
+
+
+-------------------------------------------------------------------------------
+
+
+OHJELMISTOKEHITYKSEN VAIHEET JA TESTAUS
+
+
+Vaatimusmäärittely
+	- Vaatimusten validointi
+
+Suunnittelu (Arkkitehtuuri ja käyttöliittymä)
+	- Arkkitehtuurikonseptin testaus, Proof of Concept (POC)
+	- Käyttöliittymätestaus, käyttäjätestaus (mockupit)
+
+Kehitystyö
+	- TDD: Kirjoita ensin testi featurelle, ja sitten feature joka toteuttaa testin 	ehdot
+	- Yksikkötestaus
+
+Testaus
+	- Integraatiotestaus, suorituskykytestaus, käyttäjätestaus, järjestelmätestaus, hyväksymistestaus jne.
+	
+Julkaisu
+	- Smoke-testaus (testataan yleispiirteittäin että softa toimii)
+	
+Ylläpito
+	- Valvonta, jatkuvat testit
+
+
+Jenkins (testauskirjasto)
+Cypress
+Playwright
+
+vitest, vite <<< käytössä tällä kurssilla
+mocha, chai
+jest
+testikirjastot on aina kielikohtaisia, esim javascriptille on omat testikirjastot
+
+-------------------------------------------------------------------------------
+
+
+OHJELMISTOTESTAUKSEN TASOT
+
+
+- yksikkötestaus (matalimman tason testit - testataan koodin toimintaa, assert funktiot) 
+		
+	- integraatiotestaus (järjestelmien väliseen viestintään liittyvä toiminta, API testit esimerkiksi)
+
+		- järjestelmätestaus (testataan yhteisesti kaikkien sovelluskomponenttien ja järjestelmän sovellusten toimintaa teknisesti)
+
+			- regressiotestaus (testataan että uusia toimintoja lisättäessä vanhat eivät ole menneet rikki)
+
+				- savutestaus (smoket) (testataan etenkin julkaisujen yhteydessä keskeiset toiminnallisuudet, monesti automaattisesti)
+
+					- hyväksymistestaus (usein tuoteomistaja tai asiakas tekee nämä. varmistetaan että sovelluksen tekee mitä suunniteltiin alunperin)
+
+
+-------------------------------------------------------------------------------
+
+
+YKSIKKÖTESTAUS
+
+- annetaan funktiolle joku testisyöte ja katsotaan antaako se halutun tuloksen
+
+INTEGRAATIOTESTAUS
+
+- testataan rajapintojen toimintaa
+- onko rajapinnan (API) käyttö rakennettu riittävän tehokkaaksi?
+- datan eheys, siirtovarmuus, suorituskyky
+- kulkeeko data oikein
+
+YKSIKKÖTESTAUS
+
+- annetaan funktiolle joku testisyöte ja katsotaan antaako se halutun tuloksen
+
+JÄRJESTELMÄTESTAUS
+
+- edellytys on että järjestelmä on käyttövalmis
+- Työkaluja esim. JMeter, Selenium
+- käyttötapaukset
+
+HYVÄKSYMISTESTAUS
+
+- asiakas tarkistaa toimiiko softa kunnolla
+- mikä on ohjelmiston takuu?
+- mitkä virheenkorjaukset kuuluvat takuun piiriin? mitkä ovat maksullisia?
+
+REGRESSIOTESTAUS
+
+- bugikorjaukset voivat luoda uusia ongelmia
+
+SMOKE TESTING
+
+- testataan yleispiirteittäin toimiiko softa
+
+KÄYTETTÄVYYSTESTAUS
+
+- onko sovellus käytettävä?
+- A/B testaus, heatmapit UI:n testaukseen (kannattaa olla just 2 eri versiota, ei enempää)
+- testauslaboratorio
+- testaaja ja tarkkailija: Testaaja suorittaa pyydetyn toiminnon ja tarkkailija tarkkailee testaajan tekemisiä ja kirjaa huomiot ylös. Testaajaa haastatetllaan testin jälkeen.
+
+SUORITUSKYKYTESTAUS
+
+- onko sovellus riittävän suorituskykyinen?
+- kuormitustestaus, piikkitestaus, murtumispistetestaus, konfiguraatiotestaus
+
+TIETOTURVATESTAUS
+
+- testataan sovelluksen teknistä ja inhimillistä tietoturvaa
+- penetraatiotestausta
+
+MUITA TESTAUSMENETELMIÄ
+
+- musta laatikko testaus (testaaja ei näe sovelluksen sisälle)
+- lasilaatikkotestaus (testaaja näkee ja tuntee sovelluksen sisäisen toiminnan ja pystyy hyödyntämään tätä tietoa)
+- ad hoc -testaus (testausta ilman tarkkaa suunnitelmaa)
+- yhteensopivuustestaus (testataan järjestelmien keskinäistä yhteensopivuutta)
+
+
+-------------------------------------------------------------------------------
+
+
+OHJELMISTOTESTAUKSEN TAVOITTEET
+
+
+-> laatu 
+
+		(softa toimii oikein, luotettavasti, on saavutettava, on suorituskykyinen, se on turvallinen ja käytettävä)
+
+-> verifiointi 
+
+		(tarkistetaan onko softa rakennettu oikein, vastaako ohjelmisto määriteltyä suunnittelua ja vaatimuksia)
+		(design reviewit, code reviewit)
+		("rakenna softa oikein")
+
+-> validointi 
+
+		(varmistetaan, että softa on se mitä tarvittiin alunperin)
+		(vastaako softa käyttäjän todellisia tarpeita ja aiottua käyttöä)
+		("rakenna oikea softa")
+
+
+-------------------------------------------------------------------------------
+
+
+SDLC vs. STLC (Software Development Life Cycle vs. Software Testing Life Cycle)
+
+
+- ohjelmistotestauksen elinkaari (STLC) on jäsennelty malli, joka jakaa testauksen eri vaiheisiin vaatimusten analysoinnista testauksen päättämiseen asti - auttaa löytämään ja korjaamaan virheet ajoissa
+
+
+-------------------------------------------------------------------------------
+
+
+npm run test
+npx cypress open
