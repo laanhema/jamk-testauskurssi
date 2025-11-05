@@ -222,3 +222,6 @@ SDLC vs. STLC (Software Development Life Cycle vs. Software Testing Life Cycle)
 
 npm run test
 npx cypress open
+
+
+-------------------------------------------------------------------------------
