@@ -136,10 +136,6 @@ INTEGRAATIOTESTAUS
 - datan eheys, siirtovarmuus, suorituskyky
 - kulkeeko data oikein
 
-YKSIKKÖTESTAUS
-
-- annetaan funktiolle joku testisyöte ja katsotaan antaako se halutun tuloksen
-
 JÄRJESTELMÄTESTAUS
 
 - edellytys on että järjestelmä on käyttövalmis
@@ -179,8 +175,8 @@ TIETOTURVATESTAUS
 
 MUITA TESTAUSMENETELMIÄ
 
-- musta laatikko testaus (testaaja ei näe sovelluksen sisälle)
-- lasilaatikkotestaus (testaaja näkee ja tuntee sovelluksen sisäisen toiminnan ja pystyy hyödyntämään tätä tietoa)
+- musta laatikko testaus (testaaja ei näe sovelluksen sisälle) blackbox
+- lasilaatikkotestaus (testaaja näkee ja tuntee sovelluksen sisäisen toiminnan ja pystyy hyödyntämään tätä tietoa) glassbox
 - ad hoc -testaus (testausta ilman tarkkaa suunnitelmaa)
 - yhteensopivuustestaus (testataan järjestelmien keskinäistä yhteensopivuutta)
 
@@ -212,6 +208,7 @@ OHJELMISTOTESTAUKSEN TAVOITTEET
 
 
 SDLC vs. STLC (Software Development Life Cycle vs. Software Testing Life Cycle)
+"Development" vs "Testing"
 
 
 - ohjelmistotestauksen elinkaari (STLC) on jäsennelty malli, joka jakaa testauksen eri vaiheisiin vaatimusten analysoinnista testauksen päättämiseen asti - auttaa löytämään ja korjaamaan virheet ajoissa
@@ -225,3 +222,114 @@ npx cypress open
 
 
 -------------------------------------------------------------------------------
+
+
+STLC
+
+
+koko testauksen idea lähtee vaatimusmäärittelystä
+requirements
+suunnitellaan ensin ja sitten testataan
+
+
+> requirement analysis
+> test planning
+> test case Development
+> environment setup
+> test execution
+> test cycle closure
+
+
+1. vaatimusanalyysi
+
+-> testit johdetaan tästä
+- tuotetaan taulukko, jolla vaatimukset yhdistetään
+
+
+  (idea > mitä tarvii toteuttaa > siitä trello taskit)
+
+2. testauksen suunnittelu
+
+määritellään testaukselle strategia ja suunnitelma
+"testaus-suunnitelma"
+-> tuntiarviot
+kunhan on joku arvaus se on parempi kuin ei mitään
+
+3. testitapausten luonti
+
+4. testiympäristön pystytys
+
+5. testauksen toteutus
+
+jira
+
+6. testauksen päätös
+
+
+
+-------------------------------------------------------------------------------
+
+
+Manuaalinen testaus vs automaattinen testaus
+
+MANUAALINEN TESTAUS
+
+- kallista touhua
+
+testaajana tehdään näin:
+
+1. käy läpi dokumentaatio. tutki myös sovellusta, jos se on saatavilla
+2. luonnostele testitapaukset dokumentaation vaatimusten mukaan.
+3. käy läpi testitapaukset tiiminvetäjän ja/tai asiakkaan kanssa.
+4. suorita testitapaukset sovelluksella.
+5. raportoi virheet. yleisesti askel askeleelta 
+6. kun virheet on korjattu, suoritetaan mahdollisesti uudelleen.
+
+-> hitaampaa verrattuna automaatiotestaukseen
+
+AUTOMAATTINEN TESTAUS
+
+kuinka suoritetaan?
+
+1. dokumentaatio, suunnitelma, palaverit
+2. työkalujen valinta: eri teknologioilla toteutetuille sovelluksille on usein omat testaustyökalut
+3. testausympäristön luonti
+4. testauskoodin luominen
+5. testien ajo
+6. tulosten analysointi ja mahdollisten virheiden korjaus
+7. testien ajo uudelleen virheiden korjauksen jälkeen
+8. testien ylläpito ja toisto
+
+-> kone ei tee juuri virheitä
+
+
+kumpaa sitten käytetään?
+-> kumpaakin!
+
+
+TESTAUKSEN SUUNNITTELU
+
+
+testaussunnitelman tekeminen, ja tavoitteet testeille
+testien asettaminen tärkeysjärjestykseen
+aika, laitteet, resurssit
+koulutustarpeet
+testauksen organisaatio ja hallinto
+testien aloitus ja lopetusehdot
+
+
+priorisointiperusteita
+
+
+käyttötiheys, todennäköisyys (monimutkaisuus vaikuttaa tähän)
+mittakaava ja laajuus
+kiireellisyys
+workaround
+tärkeys asiakkaalle
+
+
+
+
+Test Suite
+
+yksittäisistä testitapauksista kootaan useimmiten testikokonaisuuksia (test suite)

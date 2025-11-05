@@ -1,3 +1,5 @@
+// Your JavaScript code here
+
 /// <reference types="Cypress" />
 
 /*
