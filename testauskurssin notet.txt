@@ -333,3 +333,30 @@ tärkeys asiakkaalle
 Test Suite
 
 yksittäisistä testitapauksista kootaan useimmiten testikokonaisuuksia (test suite)
+
+
+-------------------------------------------------------------------------------
+
+
+VAATIMUSMÄÄRITTELY
+
+
+sovelluksen idea: mikä ongelma ratkaistaan? tässä ei vielä pohdita tekniikkaa.
+
+tunnista sidosryhmät jo varhaisessa vaiheessa
+
+
+
+
+
+
+TESTAUSSUUNNITELMA
+
+1. Analysoi tuote
+2. Suunnittele testausstrategia
+3. Määrittele testauksenen tavoitteet
+4. Määrittele aloitus- ja valmistumiskriteerit vaiheille
+5. Resursointi
+6. Suunnittele testausympäristö
+7. Aikataulu ja arviointi
+8. Määrittele testauksen lopputuotokset (Deliverables)
