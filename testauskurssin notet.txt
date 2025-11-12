@@ -19,7 +19,7 @@ OPINTOJAKSON SISÄLTÖ
 - ohjelmistotestauksen perusteet
 - testauksen suunnittelu
 - yksikkötestaus & Test Driven Development (TDD)
-- end-to-end -testaus
+- end-to-end -testaus (UI)
 - integraatio- ja rajapintatestaus
 - suorituskykytestaus
 - testausautomaatio ja CI/CD (Continuous Integration, Continuous Development)
@@ -34,7 +34,7 @@ MIKSI TESTATA?
 - standardit täyttyy
 - säästää aikaa ja rahaa
 - sovellukset yms. ovat tuotteita, tuotoksia. laadun näyte. tuottajansa jälki ja mainos
-- ohjelmistokehitys on erittäin monimutkasta -> virhealttius kasvaa
+- ohjelmistokehitys on erittäin monimutkaista -> virhealttius kasvaa
 - kehitysympäristö ei usein vastaa käyttöympäristöä
 - virheet aiheuttavat seuraamuksia, jotka voivat olla vakavia
 - turvallisuus ja tietoturva
