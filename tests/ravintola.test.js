@@ -1,5 +1,5 @@
 // testit ravintola-koodille
-// TODO:
+// TODO: teht 1.2
 
 import { describe, test, expect, it } from 'vitest';
 import { ravintola } from '../teht1/ravintola.js';
@@ -44,5 +44,13 @@ describe('ravintola.laskeLasku-funktion testaus', function () {
   test('test 8', function () {
     const result = ravintola.laskeLasku(true, false, false);
     expect(result).toBe(10);
+  });
+});
+
+describe('ravintola.palautaTaulukonSatunnainenArvo-funktion testaus', function () {
+  test('test 1', function () {
+    // const result = ravintola.tilaaAteria(true, true, true);
+    // console.log(result);
+    // expect(result).toBe(17);
   });
 });
