@@ -1,7 +1,7 @@
 // testit ravintola-koodille
 // TODO: teht 1.2
 
-import { describe, test, expect, it } from 'vitest';
+import { describe, test, expect } from 'vitest';
 import { ravintola } from '../teht1/ravintola.js';
 
 // describe ryhmittelee testit "Test Suiteksi"
