@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.38.0",
-    "cypress": "^15.5.0",
+    "cypress": "^15.7.1",
     "eslint": "^9.38.0",
     "globals": "^16.4.0",
     "vitest": "^4.0.1"

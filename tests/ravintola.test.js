@@ -49,8 +49,9 @@ describe('ravintola.laskeLasku-funktion testaus', function () {
 
 describe('ravintola.palautaTaulukonSatunnainenArvo-funktion testaus', function () {
   test('test 1', function () {
-    // const result = ravintola.tilaaAteria(true, true, true);
-    // console.log(result);
-    // expect(result).toBe(17);
+    // tässä pitää palautua alkuruoka taulukko
+    const arvo = ravintola.palautaTaulukonSatunnainenArvo(ravintola.alkuruoat);
+    // taulukon pitäisi sisältää alkuruoan
+    expect(ravintola.alkuruoat).toContain(arvo);
   });
 });
