@@ -13,14 +13,12 @@ const Ravintola = function () {
   ];
   this.jalkiruoat = ['Hedelmäsalaatti', 'Jäätelö', 'Pulla', 'Donitsi'];
   this.juomat = ['Tee', 'Kahvi', 'Maito', 'Mehu'];
-
-  this.paaruokaHinta = 6;
-
   this.alkuruokaHinta = 4;
+  this.paaruokaHinta = 6;
   this.jalkiruokaHinta = 4;
   this.juomaHinta = 3;
-
   this.paikkojenMaara = 15;
+  this.paikat; // Tähän muuttujaan paikkojen taulukko
 };
 
 /**
@@ -92,6 +90,21 @@ Ravintola.prototype.tarkistaPaikkojenMaara = function (asiakkaidenMaara) {
     );
     return false;
   }
+};
+
+/**
+ * Luo Ravintolan paikat-muuttujaan uuden taulukon, jonka koko määräytyy paikkojenMaara-muuttujan mukaisesti,
+ * ja täyttää taulukon boolean arvolla false.
+ */
+Ravintola.prototype.generoiPaikat = function () {
+  //Koodisi tänne
+};
+
+/**
+ * JSDoc tänne
+ */
+Ravintola.prototype.varaaPaikat = function (varauksenMaara) {
+  //Koodisi tänne
 };
 
 /**
