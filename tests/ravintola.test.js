@@ -1,11 +1,10 @@
 // testit ravintola-koodille
-// TODO: teht 1.2
 
 import { describe, test, expect } from 'vitest';
 import { ravintola } from '../teht1/ravintola.js';
 
 // describe ryhmittelee testit "Test Suiteksi"
-describe('ravintola.laskeLasku-funktion testaus', function () {
+describe('laskeLasku-funktion testaus', function () {
   test('test 1', function () {
     const result = ravintola.laskeLasku(true, true, true);
     expect(result).toBe(17);
@@ -47,11 +46,25 @@ describe('ravintola.laskeLasku-funktion testaus', function () {
   });
 });
 
-describe('ravintola.palautaTaulukonSatunnainenArvo-funktion testaus', function () {
+describe('palautaTaulukonSatunnainenArvo-funktion testaus', function () {
   test('test 1', function () {
     // tässä pitää palautua alkuruoka taulukko
     const arvo = ravintola.palautaTaulukonSatunnainenArvo(ravintola.alkuruoat);
     // taulukon pitäisi sisältää alkuruoan
     expect(ravintola.alkuruoat).toContain(arvo);
+  });
+
+  describe('syoRavintolassa-funktion testaus', function () {
+    test('test 1', function () {
+      // ravintolaan mahtuu vain 15 asiakasta joten tämän pitäisi palauttaa undefined
+      const result = ravintola.syoRavintolassa(16);
+      expect(result).toBe(undefined);
+    });
+
+    test('test 2', function () {
+      // testataan toimiiko funktio, pitäisi palauttaa objekti
+      const result = ravintola.syoRavintolassa(1);
+      expect(result).toBeTypeOf('object');
+    });
   });
 });
