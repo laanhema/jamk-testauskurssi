@@ -97,14 +97,28 @@ Ravintola.prototype.tarkistaPaikkojenMaara = function (asiakkaidenMaara) {
  * ja täyttää taulukon boolean arvolla false.
  */
 Ravintola.prototype.generoiPaikat = function () {
-  //Koodisi tänne
+  this.paikat = [];
+  this.paikkojenMaara.forEach((x) => {
+    this.paikat.push(false);
+  });
 };
 
 /**
  * JSDoc tänne
  */
-Ravintola.prototype.varaaPaikat = function (varauksenMaara) {
+Ravintola.prototype.varaaPaikat = function (varauksenMaara = 1) {
   //Koodisi tänne
+  if (typeof this.paikat !== 'array') {
+    this.generoiPaikat();
+  }
+
+  this.paikat.length < varauksenMaara
+    ? false
+    : // for (let i = 0; i < .length; i++) {
+      //   const element = array[i];
+
+      // }
+      true;
 };
 
 /**
