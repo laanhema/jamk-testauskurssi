@@ -1,3 +1,5 @@
+// testit laskin.js-koodille
+
 import { describe, test, expect, it } from 'vitest';
 import { laskin } from '../laskin/laskin.js';
 
@@ -8,7 +10,7 @@ describe('Laskimen testaus', function () {
     expect(checkSumma).toBe(2);
   });
 
-  // it ja test kumpikin käy
+  // it tai test kumpikin käy
   test('Tarkistetaan, että miinusLasku-funktio palauttaa oikean erotuksen vähennyslaskulla 5 - 2', function () {
     const checkSumma = laskin.miinusLasku(5, 2);
     expect(checkSumma).toBe(3);

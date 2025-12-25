@@ -93,8 +93,9 @@ Ravintola.prototype.tarkistaPaikkojenMaara = function (asiakkaidenMaara) {
 };
 
 /**
- * Luo Ravintolan paikat-muuttujaan uuden taulukon, jonka koko määräytyy paikkojenMaara-muuttujan mukaisesti,
- * ja täyttää taulukon boolean arvolla false.
+ * asd
+ * @param {void} (funktiolla ei ole parametreja)
+ * @returns {void} (funktio ei palauta mitään)
  */
 Ravintola.prototype.generoiPaikat = function () {
   this.paikat = [];
@@ -104,7 +105,9 @@ Ravintola.prototype.generoiPaikat = function () {
 };
 
 /**
- * JSDoc tänne
+ * asd
+ * @param {number} varausten määrä
+ * @returns {void} (funktio ei palauta mitään)
  */
 Ravintola.prototype.varaaPaikat = function (varauksenMaara = 1) {
   //Koodisi tänne

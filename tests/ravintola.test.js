@@ -1,46 +1,45 @@
-// testit ravintola-koodille
+// testit ravintola.js-koodille
 
 import { describe, test, expect } from 'vitest';
-import { ravintola } from '../teht1/ravintola.js';
+import { ravintola } from '../yksikkotestit/ravintola.js';
 
-// describe ryhmittelee testit "Test Suiteksi"
-describe('laskeLasku-funktion testaus', function () {
-  test('test 1', function () {
+describe('tehtävä 1.1 - laskeLasku-funktion testaaminen', function () {
+  test('tuleeko oikea vastaus kun viedään parametreina true, true, true', function () {
     const result = ravintola.laskeLasku(true, true, true);
     expect(result).toBe(17);
   });
 
-  test('test 2', function () {
+  test('tuleeko oikea vastaus kun viedään parametreina false, false, false', function () {
     const result = ravintola.laskeLasku(false, false, false);
     expect(result).toBe(6);
   });
 
-  test('test 3', function () {
+  test('tuleeko oikea vastaus kun viedään parametreina true, false, true', function () {
     const result = ravintola.laskeLasku(true, false, true);
     expect(result).toBe(13);
   });
 
-  test('test 4', function () {
+  test('tuleeko oikea vastaus kun viedään parametreina false, true, false', function () {
     const result = ravintola.laskeLasku(false, true, false);
     expect(result).toBe(10);
   });
 
-  test('test 5', function () {
+  test('tuleeko oikea vastaus kun viedään parametreina true, true, false', function () {
     const result = ravintola.laskeLasku(true, true, false);
     expect(result).toBe(14);
   });
 
-  test('test 6', function () {
+  test('tuleeko oikea vastaus kun viedään parametreina false, false, true', function () {
     const result = ravintola.laskeLasku(false, false, true);
     expect(result).toBe(9);
   });
 
-  test('test 7', function () {
+  test('tuleeko oikea vastaus kun viedään parametreina false, true, true', function () {
     const result = ravintola.laskeLasku(false, true, true);
     expect(result).toBe(13);
   });
 
-  test('test 8', function () {
+  test('tuleeko oikea vastaus kun viedään parametreina true, false, false', function () {
     const result = ravintola.laskeLasku(true, false, false);
     expect(result).toBe(10);
   });
