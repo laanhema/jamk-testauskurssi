@@ -58,11 +58,15 @@ Ravintola.prototype.syoRavintolassa = function (asiakkaidenMaara) {
   const onTilaa = this.tarkistaPaikkojenMaara(asiakkaidenMaara);
 
   if (!onTilaa) {
-    return;
+    throw new Error('Ravintolassa ei ole tarpeeksi tilaa näille asiakkaille!');
   }
 
   // varataan paikat asiakkaille jos onnistuu
-  this.varaaPaikat(asiakkaidenMaara);
+  const paikkaVarausOnnistui = this.varaaPaikat(asiakkaidenMaara);
+
+  if (!paikkaVarausOnnistui) {
+    throw new Error('Ravintolassa ei ole tarpeeksi tilaa näille asiakkaille!');
+  }
 
   const tilaukset = [];
 
@@ -140,30 +144,44 @@ Ravintola.prototype.generoiPaikat = function () {
  */
 Ravintola.prototype.varaaPaikat = function (varauksenMaara = 1) {
   // jos paikat-muuttujassa ei ole taulukkoa, generoidaan se
-  if (typeof this.paikat !== 'array') {
+  if (typeof this.paikat === 'undefined') {
+    console.log(
+      'Paikat-muuttujassa ei ole taulukkoa, generoidaan uusi paikat-taulukko'
+    );
     this.generoiPaikat();
   }
 
   // lasketaan vapaiden paikkojen määrä paikat taulukosta. vapaissa paikoissa on arvona false
-  let vapaitaPaikkoja = this.paikat.filter((x) => {
-    if (!x) return x;
+  // let vapaitaPaikkoja = this.paikat.filter((x) => {
+  //   if (!x) return x;
+  // });
+  for (let i = 0; i < this.paikat.length; i++) {
+    console.log(this.paikat);
+  }
+  //
+  let vapaitaPaikkoja = 0;
+  Array.from(this.paikat).forEach((x) => {
+    if (!x) {
+      vapaitaPaikkoja++;
+    }
   });
-  let vapaidenPaikkojenMaara = vapaitaPaikkoja.length;
+
+  let vapaidenPaikkojenMaara = vapaitaPaikkoja;
+  console.log(vapaidenPaikkojenMaara);
   // jos vapaiden paikkojen määrä on pienempi kuin varauksenMaara, palauttaa falsen
   // ts. jos koitetaan varata enemmän paikkoja kuin niitä on vapaana, ei onnistu
   if (vapaidenPaikkojenMaara < varauksenMaara) {
     return false;
   } else {
-    // muutoin käydään läpi paikat taulukkoa ja muutetaan vapaiden paikkojen määrän mukaisesti false-arvoja trueksi
-    let vapaidenPaikkojenMaara2 = vapaidenPaikkojenMaara;
+    // muutoin käydään läpi paikat taulukkoa ja muutetaan varauksenMaara verran false-arvoja trueksi
+    let varattujaParhaalla = 0;
 
-    // tässä pitää convertaa Arrayksi koska muuten forEach ei toimi
-    Array.from(this.paikat).forEach((x) => {
-      if (!x && vapaidenPaikkojenMaara2 > 0) {
-        x = true;
-        vapaidenPaikkojenMaara2--;
+    for (let i = 0; i < this.paikat.length; i++) {
+      if (!this.paikat[i] && varattujaParhaalla < varauksenMaara) {
+        this.paikat[i] = true;
+        varattujaParhaalla++;
       }
-    });
+    }
 
     // palautetaan lopuksi true
     return true;

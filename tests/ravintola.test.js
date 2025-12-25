@@ -79,13 +79,16 @@ describe('TEHTÄVÄ 1.2 - palautaTaulukonSatunnainenArvo-funktion testaus', func
   });
 
   describe('TEHTÄVÄ 1.3 - syoRavintolassa-funktion testaus', function () {
-    test('test 1 - ravintolaan mahtuu vain 15 asiakasta joten tämän pitäisi palauttaa undefined', function () {
-      // ravintolaan mahtuu vain 15 asiakasta joten tämän pitäisi palauttaa undefined
-      const result = ravintola.syoRavintolassa(16);
-      expect(result).toBeUndefined();
+    test('test 1 - ravintolaan mahtuu vain 15 asiakasta joten tämän pitäisi palauttaa error', function () {
+      // ravintolaan mahtuu vain 15 asiakasta joten tämän pitäisi palauttaa error
+      // const result = ravintola.syoRavintolassa(16);
+      expect(() => ravintola.syoRavintolassa(16)).toThrowError(
+        'Ravintolassa ei ole tarpeeksi tilaa näille asiakkaille!'
+      );
+      // expect(result).toBeUndefined();
     });
 
-    test('test 2 - testataan toimiiko funktio oikeanlaisella syötteellä, pitäisi palauttaa objektin', function () {
+    test('test 2 - testataan toimiiko funktio oikeanlaisella syötteellä, pitäisi palauttaa objekti', function () {
       // testataan toimiiko funktio, pitäisi palauttaa objektin
       // funktio palauttaa siis objekti-taulukon joka sisältää tilaukset
       const result = ravintola.syoRavintolassa(1);
@@ -93,5 +96,37 @@ describe('TEHTÄVÄ 1.2 - palautaTaulukonSatunnainenArvo-funktion testaus', func
     });
   });
 
-  describe('TESTIKOODIN TOTEUTUS -kohta', function () {});
+  describe('TESTIKOODIN TOTEUTUS -kohta', function () {
+    test('testitapaus 1 - Kutsutaan syoRavintolassa funktiota argumentilla, joka on pienempi tai yhtäsuuri kuin paikkojen määrä', function () {
+      const result = ravintola.syoRavintolassa(2);
+      expect(result).toBeTypeOf('object');
+    });
+
+    test('testitapaus 2', function () {
+      // let result;
+
+      // result = ravintola.syoRavintolassa(10);
+      // result = ravintola.syoRavintolassa(6);
+
+      expect(() => {
+        ravintola.syoRavintolassa(10);
+        ravintola.syoRavintolassa(6);
+      }).toThrowError(
+        'Ravintolassa ei ole tarpeeksi tilaa näille asiakkaille!'
+      );
+    });
+
+    // testitapaus 3 on käyty läpi jo kohdassa tehtävä 1.1
+  });
+
+  // describe('varaaPaikat-funktion testaus', () => {
+  //   test('test 1', () => {
+  //     const result = ravintola.varaaPaikat();
+  //     let varatutPaikat = ravintola.paikat.filter((x) => {
+  //       if (x) return x;
+  //     });
+  //     expect(varatutPaikat.length).toBe(1);
+  //     // expect(result).toBe(true);
+  //   });
+  // });
 });
