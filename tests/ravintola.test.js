@@ -45,12 +45,33 @@ describe('tehtävä 1.1 - laskeLasku-funktion testaaminen', function () {
   });
 });
 
-describe('palautaTaulukonSatunnainenArvo-funktion testaus', function () {
-  test('test 1', function () {
-    // tässä pitää palautua alkuruoka taulukko
-    const arvo = ravintola.palautaTaulukonSatunnainenArvo(ravintola.alkuruoat);
-    // taulukon pitäisi sisältää alkuruoan
-    expect(ravintola.alkuruoat).toContain(arvo);
+describe('tehtävä 1.2 - palautaTaulukonSatunnainenArvo-funktion testaus', function () {
+  test('testataan kun viedään parametrina alkuruoat-taulukko', function () {
+    const result = ravintola.palautaTaulukonSatunnainenArvo(
+      ravintola.alkuruoat
+    );
+
+    expect(ravintola.alkuruoat).toContain(result);
+  });
+
+  test('testataan kun viedään parametrina paaruoat-taulukko', function () {
+    const result = ravintola.palautaTaulukonSatunnainenArvo(ravintola.paaruoat);
+
+    expect(ravintola.paaruoat).toContain(result);
+  });
+
+  test('testataan kun viedään parametrina jalkiruoat-taulukko', function () {
+    const result = ravintola.palautaTaulukonSatunnainenArvo(
+      ravintola.jalkiruoat
+    );
+
+    expect(ravintola.jalkiruoat).toContain(result);
+  });
+
+  test('testataan kun viedään parametrina juomat-taulukko', function () {
+    const result = ravintola.palautaTaulukonSatunnainenArvo(ravintola.juomat);
+
+    expect(ravintola.juomat).toContain(result);
   });
 
   describe('syoRavintolassa-funktion testaus', function () {
