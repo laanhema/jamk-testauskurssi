@@ -55,11 +55,11 @@ function generoiBoolean() {
  */
 Ravintola.prototype.syoRavintolassa = function (asiakkaidenMaara) {
   // tässä vielä käytetään myös tarkistaPaikkojenMaara-funktiota koska se tulostaa havainnollistavat tulosteet konsoliin joka auttaa testaamisessa
-  const onTilaa = this.tarkistaPaikkojenMaara(asiakkaidenMaara);
+  // const onTilaa = this.tarkistaPaikkojenMaara(asiakkaidenMaara);
 
-  if (!onTilaa) {
-    throw new Error('Ravintolassa ei ole tarpeeksi tilaa näille asiakkaille!');
-  }
+  // if (!onTilaa) {
+  //   throw new Error('Ravintolassa ei ole tarpeeksi tilaa näille asiakkaille!');
+  // }
 
   // varataan paikat asiakkaille jos onnistuu
   const paikkaVarausOnnistui = this.varaaPaikat(asiakkaidenMaara);
@@ -155,9 +155,9 @@ Ravintola.prototype.varaaPaikat = function (varauksenMaara = 1) {
   // let vapaitaPaikkoja = this.paikat.filter((x) => {
   //   if (!x) return x;
   // });
-  for (let i = 0; i < this.paikat.length; i++) {
-    console.log(this.paikat);
-  }
+  // for (let i = 0; i < this.paikat.length; i++) {
+  //   console.log(this.paikat);
+  // }
   //
   let vapaitaPaikkoja = 0;
   Array.from(this.paikat).forEach((x) => {
