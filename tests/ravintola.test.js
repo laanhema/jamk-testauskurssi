@@ -3,49 +3,53 @@
 import { describe, test, expect } from 'vitest';
 import { ravintola } from '../yksikkotestit/ravintola.js';
 
-describe('tehtävä 1.1 - laskeLasku-funktion testaaminen', function () {
-  test('tuleeko oikea vastaus kun viedään parametreina true, true, true', function () {
-    const result = ravintola.laskeLasku(true, true, true);
-    expect(result).toBe(17);
+describe('TEHTÄVÄ 1.1 - laskeLasku-funktion testaus', function () {
+  test('test 1 - tomaattikeitto + kalakeitto + hedelmäsalaatti + tee = 19', function () {
+    const ruoat = [
+      ravintola.alkuruoat[0],
+      ravintola.paaruoat[0],
+      ravintola.jalkiruoat[0],
+      ravintola.juomat[0],
+    ];
+    const result = ravintola.laskeLasku(ruoat);
+    expect(result).toBe(19);
   });
 
-  test('tuleeko oikea vastaus kun viedään parametreina false, false, false', function () {
-    const result = ravintola.laskeLasku(false, false, false);
-    expect(result).toBe(6);
+  test('test 2 - leipä + makaroonilaatikko + jäätelö + kahvi = 18', function () {
+    const ruoat = [
+      ravintola.alkuruoat[1],
+      ravintola.paaruoat[1],
+      ravintola.jalkiruoat[1],
+      ravintola.juomat[1],
+    ];
+    const result = ravintola.laskeLasku(ruoat);
+    expect(result).toBe(18);
   });
 
-  test('tuleeko oikea vastaus kun viedään parametreina true, false, true', function () {
-    const result = ravintola.laskeLasku(true, false, true);
-    expect(result).toBe(13);
+  test('test 3 - vihersalaatti + kasvispihvi + pulla + maito = 18', function () {
+    const ruoat = [
+      ravintola.alkuruoat[2],
+      ravintola.paaruoat[2],
+      ravintola.jalkiruoat[2],
+      ravintola.juomat[2],
+    ];
+    const result = ravintola.laskeLasku(ruoat);
+    expect(result).toBe(18);
   });
 
-  test('tuleeko oikea vastaus kun viedään parametreina false, true, false', function () {
-    const result = ravintola.laskeLasku(false, true, false);
-    expect(result).toBe(10);
-  });
-
-  test('tuleeko oikea vastaus kun viedään parametreina true, true, false', function () {
-    const result = ravintola.laskeLasku(true, true, false);
-    expect(result).toBe(14);
-  });
-
-  test('tuleeko oikea vastaus kun viedään parametreina false, false, true', function () {
-    const result = ravintola.laskeLasku(false, false, true);
-    expect(result).toBe(9);
-  });
-
-  test('tuleeko oikea vastaus kun viedään parametreina false, true, true', function () {
-    const result = ravintola.laskeLasku(false, true, true);
-    expect(result).toBe(13);
-  });
-
-  test('tuleeko oikea vastaus kun viedään parametreina true, false, false', function () {
-    const result = ravintola.laskeLasku(true, false, false);
-    expect(result).toBe(10);
+  test('test 4 - salsa + kanasalaatti + donitsi + mehu = 21', function () {
+    const ruoat = [
+      ravintola.alkuruoat[3],
+      ravintola.paaruoat[3],
+      ravintola.jalkiruoat[3],
+      ravintola.juomat[3],
+    ];
+    const result = ravintola.laskeLasku(ruoat);
+    expect(result).toBe(21);
   });
 });
 
-describe('tehtävä 1.2 - palautaTaulukonSatunnainenArvo-funktion testaus', function () {
+describe('TEHTÄVÄ 1.2 - palautaTaulukonSatunnainenArvo-funktion testaus', function () {
   test('testataan kun viedään parametrina alkuruoat-taulukko', function () {
     const result = ravintola.palautaTaulukonSatunnainenArvo(
       ravintola.alkuruoat
@@ -74,17 +78,20 @@ describe('tehtävä 1.2 - palautaTaulukonSatunnainenArvo-funktion testaus', func
     expect(ravintola.juomat).toContain(result);
   });
 
-  describe('syoRavintolassa-funktion testaus', function () {
-    test('test 1', function () {
+  describe('TEHTÄVÄ 1.3 - syoRavintolassa-funktion testaus', function () {
+    test('test 1 - ravintolaan mahtuu vain 15 asiakasta joten tämän pitäisi palauttaa undefined', function () {
       // ravintolaan mahtuu vain 15 asiakasta joten tämän pitäisi palauttaa undefined
       const result = ravintola.syoRavintolassa(16);
-      expect(result).toBe(undefined);
+      expect(result).toBeUndefined();
     });
 
-    test('test 2', function () {
-      // testataan toimiiko funktio, pitäisi palauttaa objekti
+    test('test 2 - testataan toimiiko funktio oikeanlaisella syötteellä, pitäisi palauttaa objektin', function () {
+      // testataan toimiiko funktio, pitäisi palauttaa objektin
+      // funktio palauttaa siis objekti-taulukon joka sisältää tilaukset
       const result = ravintola.syoRavintolassa(1);
       expect(result).toBeTypeOf('object');
     });
   });
+
+  describe('TESTIKOODIN TOTEUTUS -kohta', function () {});
 });
