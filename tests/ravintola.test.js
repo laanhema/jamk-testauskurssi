@@ -102,12 +102,7 @@ describe('TEHTÄVÄ 1.2 - palautaTaulukonSatunnainenArvo-funktion testaus', func
       expect(result).toBeTypeOf('object');
     });
 
-    test('testitapaus 2', function () {
-      // let result;
-
-      // result = ravintola.syoRavintolassa(10);
-      // result = ravintola.syoRavintolassa(6);
-
+    test('testitapaus 2 - Kutsutaan syoRavintolassa funktiota ensiksi argumentilla 10, ja sen jälkeen argumentilla 6. Riippuen Testitapaus 1:n argumentista, joko 1. tai 2. syoRavintolassa-funktiokutsun ei tulisi mennä enää läpi.', function () {
       expect(() => {
         ravintola.syoRavintolassa(10);
         ravintola.syoRavintolassa(6);
@@ -118,15 +113,4 @@ describe('TEHTÄVÄ 1.2 - palautaTaulukonSatunnainenArvo-funktion testaus', func
 
     // testitapaus 3 on käyty läpi jo kohdassa tehtävä 1.1
   });
-
-  // describe('varaaPaikat-funktion testaus', () => {
-  //   test('test 1', () => {
-  //     const result = ravintola.varaaPaikat();
-  //     let varatutPaikat = ravintola.paikat.filter((x) => {
-  //       if (x) return x;
-  //     });
-  //     expect(varatutPaikat.length).toBe(1);
-  //     // expect(result).toBe(true);
-  //   });
-  // });
 });

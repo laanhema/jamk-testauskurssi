@@ -54,13 +54,6 @@ function generoiBoolean() {
  * @return {object} object array
  */
 Ravintola.prototype.syoRavintolassa = function (asiakkaidenMaara) {
-  // tässä vielä käytetään myös tarkistaPaikkojenMaara-funktiota koska se tulostaa havainnollistavat tulosteet konsoliin joka auttaa testaamisessa
-  // const onTilaa = this.tarkistaPaikkojenMaara(asiakkaidenMaara);
-
-  // if (!onTilaa) {
-  //   throw new Error('Ravintolassa ei ole tarpeeksi tilaa näille asiakkaille!');
-  // }
-
   // varataan paikat asiakkaille jos onnistuu
   const paikkaVarausOnnistui = this.varaaPaikat(asiakkaidenMaara);
 
@@ -152,34 +145,27 @@ Ravintola.prototype.varaaPaikat = function (varauksenMaara = 1) {
   }
 
   // lasketaan vapaiden paikkojen määrä paikat taulukosta. vapaissa paikoissa on arvona false
-  // let vapaitaPaikkoja = this.paikat.filter((x) => {
-  //   if (!x) return x;
-  // });
-  // for (let i = 0; i < this.paikat.length; i++) {
-  //   console.log(this.paikat);
-  // }
-  //
   let vapaitaPaikkoja = 0;
   Array.from(this.paikat).forEach((x) => {
     if (!x) {
       vapaitaPaikkoja++;
     }
   });
-
   let vapaidenPaikkojenMaara = vapaitaPaikkoja;
-  console.log(vapaidenPaikkojenMaara);
+  // console.log(vapaidenPaikkojenMaara);
+
   // jos vapaiden paikkojen määrä on pienempi kuin varauksenMaara, palauttaa falsen
   // ts. jos koitetaan varata enemmän paikkoja kuin niitä on vapaana, ei onnistu
   if (vapaidenPaikkojenMaara < varauksenMaara) {
     return false;
   } else {
     // muutoin käydään läpi paikat taulukkoa ja muutetaan varauksenMaara verran false-arvoja trueksi
-    let varattujaParhaalla = 0;
+    let varauksiaTehtyKpl = 0;
 
     for (let i = 0; i < this.paikat.length; i++) {
-      if (!this.paikat[i] && varattujaParhaalla < varauksenMaara) {
+      if (!this.paikat[i] && varauksiaTehtyKpl < varauksenMaara) {
         this.paikat[i] = true;
-        varattujaParhaalla++;
+        varauksiaTehtyKpl++;
       }
     }
 
